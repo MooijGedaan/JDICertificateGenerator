@@ -18,3 +18,6 @@ Een tool op de website van Justdiggit waar je een bedrag kan doneren. Hiervoor k
 
 #### Download
 - Download direct na het betalen het certificaat zodat je hem kan printen en geven!
+
+## ✏️ Low fidelity schets
+Bekijk de eerste schetsen [hier](LowFidelity.pdf).

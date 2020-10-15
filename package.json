@@ -1,0 +1,26 @@
+{
+  "name": "JDICertificateGenerator",
+  "version": "1.0.0",
+  "description": "Give green instead of a present! This generator will help supporters of Justdiggit create certificates for donating money.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "postcss css/style.css -o build/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MooijGedaan/JDICertificateGenerator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MooijGedaan/JDICertificateGenerator/issues"
+  },
+  "homepage": "https://github.com/MooijGedaan/JDICertificateGenerator#readme",
+  "dependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^8.1.0",
+    "tailwindcss": "^1.9.2"
+  }
+}

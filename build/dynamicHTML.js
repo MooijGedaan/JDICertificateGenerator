@@ -157,8 +157,11 @@ function createDesign() {
   designOptions.map((val, index) => {
     const optionWrapper = document.createElement('div');
     optionWrapper.classList.add('border-gray-400', 'border-2', 'rounded', 'h-56', 'w-full', 'mx-1', 'text-center', 'text-white', 'text-2xl');
-    optionWrapper.style.backgroundImage = `url(https://source.unsplash.com/1000x1000/?${val})`;
-    optionWrapper.style.backgroundSize = 'cover';
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    optionWrapper.style.backgroundColor = bgColor;
     optionWrapper.innerHTML = userInputName;
     optionsWrapper.append(optionWrapper);
   });

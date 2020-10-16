@@ -12,12 +12,28 @@ const contentWelcomeButtonText = "Let's start";
 const contentNameTitle = "Who will recieve this certificate?";
 const contentNameNextButtonText = "Next step";
 const contentNamePrevButtonText = "Previous step";
+let userInputName = "";
+
+// Design screen
+const contentDesignTitle = "Choose the design that fits the accession best!";
+const contentDesignNextButtonText = "Next step";
+const contentDesignPrevButtonText = "Previous step";
+const designOptions = ['Party', 'Christmas', 'Baby'];
 
 
 // ------------ STATE ------------- //
 
-let pageIndex = 1;
+let pageIndex = 0;
 let isThereContent = false;
+
+// ------- EVENT LISTENERS -------- //
+
+document.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    pageIndex++;
+    newPage();
+  }
+});
 
 // -------------------------------- //
 
@@ -80,21 +96,12 @@ function createWelcome() {
   welcomeCopy.classList.add('text-base', 'font-jdi');
   welcomeCopy.innerHTML = contentWelcomeCopy;
 
-  // Create button
-  const welcomeButton = document.createElement('button');
-  welcomeButton.classList.add('font-jdi', 'text-base', 'px-4', 'text-white', 'rounded', 'my-4', 'bg-green-600', 'hover:bg-green-700', 'focus:bg-green-700', 'py-2');
-  welcomeButton.onclick = () => {
-    pageIndex++;
-    newPage();
-  };
-  welcomeButton.innerHTML = contentWelcomeButtonText;
-
   // Append
   innerWrapper.append(welcomeTitle);
   innerWrapper.append(welcomeCopy);
-  innerWrapper.append(welcomeButton);
   outerWrapper.append(innerWrapper);
   innerDiv.append(outerWrapper);
+  createBottomBar(false, null, true, contentWelcomeButtonText);
 }
 
 function createName() {
@@ -112,18 +119,59 @@ function createName() {
 
   // Create input
   const nameInput = document.createElement('input');
-  nameInput.classList.add('border-2', 'rounded-lg', 'family-jdi', 'text-xs', 'px-2', 'py-1', 'w-64');
+  nameInput.classList.add('border-2', 'rounded', 'family-jdi', 'text-xs', 'px-2', 'py-1', 'w-64');
   nameInput.placeholder = "Insert name here...";
+  nameInput.value = userInputName;
+  nameInput.addEventListener('input', updateName);
+
+  function updateName(e) {
+    userInputName = e.target.value;
+  }
 
   // Append
   innerWrapper.append(nameTitle);
   innerWrapper.append(nameInput);
   outerWrapper.append(innerWrapper);
   innerDiv.append(outerWrapper);
-  createBottomBar(true, true);
+  createBottomBar(true, contentNamePrevButtonText, true, contentNameNextButtonText);
 }
 
-function createBottomBar(Prev, Next) {
+function createDesign() {
+  // Create wrappers
+  const outerWrapper = document.createElement('div');
+  outerWrapper.classList.add('py-5', 'mainBlock', 'flex');
+  outerWrapper.id = 'contentBlock';
+  const innerWrapper = document.createElement('div');
+  innerWrapper.classList.add('my-auto', 'w-full');
+
+  // Create heading
+  const designTitle = document.createElement('h1');
+  designTitle.classList.add('text-2xl', 'font-jdi', 'font-bold', 'mb-4');
+  designTitle.innerHTML = contentDesignTitle;
+
+  // Create wrapper design options
+  const optionsWrapper = document.createElement('div');
+  optionsWrapper.classList.add('w-full', 'flex', 'justify-between');
+
+  // Create design option
+  designOptions.map((val, index) => {
+    const optionWrapper = document.createElement('div');
+    optionWrapper.classList.add('border-gray-400', 'border-2', 'rounded', 'h-56', 'w-full', 'mx-1', 'text-center', 'text-white', 'text-2xl');
+    optionWrapper.style.backgroundImage = `url(https://source.unsplash.com/1000x1000/?${val})`;
+    optionWrapper.style.backgroundSize = 'cover';
+    optionWrapper.innerHTML = userInputName;
+    optionsWrapper.append(optionWrapper);
+  });
+
+  // Append (before design options)
+  innerWrapper.append(designTitle);
+  innerWrapper.append(optionsWrapper);
+  outerWrapper.append(innerWrapper);
+  innerDiv.append(outerWrapper);
+  createBottomBar(true, contentDesignPrevButtonText, true, contentDesignNextButtonText);
+}
+
+function createBottomBar(Prev, buttonTitlePrev, Next, buttonTitleNext) {
   // Create wrappers
   const outerWrapper = document.createElement('div');
   outerWrapper.classList.add('w-full', 'border-t-2', 'flex', 'justify-between');
@@ -132,30 +180,37 @@ function createBottomBar(Prev, Next) {
   // If prev button is needed
   if (Prev) {
     // Create previous button
-    const namePrevButton = document.createElement('button');
-    namePrevButton.classList.add('font-jdi', 'block', 'text-base', 'px-4', 'text-gray-400', 'rounded', 'my-4', 'border-gray-300', 'border-2', 'hover:border-gray-400', 'focus:border-gray-400', 'py-2');
-    namePrevButton.innerHTML = contentNamePrevButtonText;
-    namePrevButton.onclick = () => {
+    const prevButton = document.createElement('button');
+    prevButton.classList.add('font-jdi', 'block', 'text-base', 'px-4', 'text-gray-400', 'rounded', 'my-4', 'border-gray-300', 'border-2', 'hover:border-gray-400', 'focus:border-gray-400', 'py-2', 'flex', 'items-center');
+    prevButton.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 512' class='h-4 inline mr-3'><path fill='currentColor' d='M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z'></path></svg>";
+    prevButton.innerHTML += buttonTitlePrev;
+    prevButton.onclick = () => {
       pageIndex--;
       newPage();
     }
 
     // Append
-    outerWrapper.append(namePrevButton);
+    outerWrapper.append(prevButton);
   }
 
   if (Next) {
     // Create next button
-    const nameNextButton = document.createElement('button');
-    nameNextButton.classList.add('font-jdi', 'block', 'text-base', 'px-4', 'text-white', 'rounded', 'my-4', 'bg-green-600', 'hover:bg-green-700', 'focus:bg-green-700', 'py-2');
-    nameNextButton.innerHTML = contentNameNextButtonText;
-    nameNextButton.onclick = () => {
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('font-jdi', 'block', 'text-base', 'px-4', 'text-white', 'rounded', 'my-4', 'bg-green-600', 'hover:bg-green-700', 'focus:bg-green-700', 'py-2');
+    nextButton.innerHTML = buttonTitleNext;
+    nextButton.innerHTML += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" class="h-4 inline ml-3"><path fill="currentColor" d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z" class=""></path></svg>';
+    nextButton.onclick = () => {
       pageIndex++;
       newPage();
     }
 
+    if (!Prev) {
+      outerWrapper.classList.remove('justify-between');
+      outerWrapper.classList.add('justify-end');
+    }
+
     // Append
-    outerWrapper.append(nameNextButton);
+    outerWrapper.append(nextButton);
   }
 
   // Append
@@ -167,6 +222,8 @@ function newPage() {
     clearPages();
   }
   const navOptions = document.querySelector('#navBar').children;
+
+  console.log(pageIndex);
 
   for (i = 0; i < navOptions.length; i++) {
     navOptions[i].classList.remove('active');
@@ -183,9 +240,9 @@ function newPage() {
       isThereContent = true;
       break;
     case 2:
-      // createDesign();
+      createDesign();
       navOptions[1].classList.add('active');
-      isThereContent = false;
+      isThereContent = true;
       break;
     case 3:
       // createAmount();

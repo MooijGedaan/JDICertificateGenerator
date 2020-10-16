@@ -1,3 +1,4 @@
+
 // ---------- CHANGE TEXT --------- //
 
 // Navigation
@@ -12,7 +13,6 @@ const contentWelcomeButtonText = "Let's start";
 const contentNameTitle = "Who will recieve this certificate?";
 const contentNameNextButtonText = "Next step";
 const contentNamePrevButtonText = "Previous step";
-let userInputName = "";
 
 // Design screen
 const contentDesignTitle = "Choose the design that fits the occasion best!";
@@ -23,14 +23,14 @@ const designOptions = ['Party', 'Christmas', 'Baby'];
 
 // ------------ STATE ------------- //
 
-let pageIndex = 0;
 let isThereContent = false;
 
 // ------- EVENT LISTENERS -------- //
 
 document.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
-    pageIndex++;
+    let currentIndex = Cookies.get('pageIndex');
+    Cookies.set('pageIndex', currentIndex++, {expires: 1});
     newPage();
   }
 });
@@ -68,7 +68,7 @@ function createNavBar() {
     title.classList.add('font-jdi', 'h-8', 'mt-4', 'border-b-2', 'hover:text-black', 'hover:border-green-600', 'text-gray-500', 'cursor-pointer');
     title.innerHTML = obj;
     title.onclick = () => {
-      pageIndex = (indexObj + 1);
+      Cookies.set('pageIndex', (indexObj + 1), {expires: 1});
       newPage();
     }
     wrapperNavBar.append(title);
@@ -121,11 +121,11 @@ function createName() {
   const nameInput = document.createElement('input');
   nameInput.classList.add('border-2', 'rounded', 'family-jdi', 'text-xs', 'px-2', 'py-1', 'w-64');
   nameInput.placeholder = "Insert name here...";
-  nameInput.value = userInputName;
+  nameInput.value = Cookies.get('userInput');
   nameInput.addEventListener('input', updateName);
 
   function updateName(e) {
-    userInputName = e.target.value;
+    Cookies.set('userInput', e.target.value, {expires: 1});
   }
 
   // Append
@@ -162,7 +162,7 @@ function createDesign() {
     let z = Math.floor(Math.random() * 256);
     let bgColor = "rgb(" + x + "," + y + "," + z + ")";
     optionWrapper.style.backgroundColor = bgColor;
-    optionWrapper.innerHTML = userInputName;
+    optionWrapper.innerHTML = Cookies.get('userInput');
     optionsWrapper.append(optionWrapper);
   });
 
@@ -188,7 +188,8 @@ function createBottomBar(Prev, buttonTitlePrev, Next, buttonTitleNext) {
     prevButton.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 512' class='h-4 inline mr-3'><path fill='currentColor' d='M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z'></path></svg>";
     prevButton.innerHTML += buttonTitlePrev;
     prevButton.onclick = () => {
-      pageIndex--;
+      let currentIndex = Cookies.get('pageIndex');
+      Cookies.set('pageIndex', (currentIndex - 1), {expires: 1});
       newPage();
     }
 
@@ -203,7 +204,8 @@ function createBottomBar(Prev, buttonTitlePrev, Next, buttonTitleNext) {
     nextButton.innerHTML = buttonTitleNext;
     nextButton.innerHTML += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" class="h-4 inline ml-3"><path fill="currentColor" d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z" class=""></path></svg>';
     nextButton.onclick = () => {
-      pageIndex++;
+      let currentIndex = Cookies.get('pageIndex');
+      Cookies.set('pageIndex', (currentIndex + 1), {expires: 1});
       newPage();
     }
 
@@ -226,13 +228,13 @@ function newPage() {
   }
   const navOptions = document.querySelector('#navBar').children;
 
-  console.log(pageIndex);
-
   for (i = 0; i < navOptions.length; i++) {
     navOptions[i].classList.remove('active');
   }
 
-  switch (pageIndex) {
+  const page = Cookies.get('pageIndex');
+
+  switch (parseInt(page)) {
     case 0:
       createWelcome();
       isThereContent = true;

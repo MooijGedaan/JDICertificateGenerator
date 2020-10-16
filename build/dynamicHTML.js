@@ -189,7 +189,8 @@ function createBottomBar(Prev, buttonTitlePrev, Next, buttonTitleNext) {
     prevButton.innerHTML += buttonTitlePrev;
     prevButton.onclick = () => {
       let currentIndex = Cookies.get('pageIndex');
-      Cookies.set('pageIndex', (currentIndex - 1), {expires: 1});
+      currentIndex--;
+      Cookies.set('pageIndex', currentIndex, {expires: 1});
       newPage();
     }
 
@@ -205,7 +206,9 @@ function createBottomBar(Prev, buttonTitlePrev, Next, buttonTitleNext) {
     nextButton.innerHTML += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" class="h-4 inline ml-3"><path fill="currentColor" d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z" class=""></path></svg>';
     nextButton.onclick = () => {
       let currentIndex = Cookies.get('pageIndex');
-      Cookies.set('pageIndex', (currentIndex + 1), {expires: 1});
+      currentIndex++;
+      console.log(currentIndex);
+      Cookies.set('pageIndex', currentIndex, {expires: 1});
       newPage();
     }
 

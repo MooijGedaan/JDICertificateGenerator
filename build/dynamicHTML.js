@@ -25,6 +25,13 @@ const designOptions = ['Party', 'Christmas', 'Baby'];
 
 let isThereContent = false;
 
+if (Cookies.get('pageIndex') === undefined) {
+  Cookies.set('pageIndex', 0, {expires: 1});
+}
+if (Cookies.get('userInput') === undefined) {
+  Cookies.set('userInput', "", {expires: 1});
+}
+
 // ------- EVENT LISTENERS -------- //
 
 document.addEventListener('keypress', function (e) {

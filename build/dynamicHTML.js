@@ -37,7 +37,8 @@ if (Cookies.get('userInput') === undefined) {
 document.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
     let currentIndex = Cookies.get('pageIndex');
-    Cookies.set('pageIndex', currentIndex++, {expires: 1});
+    currentIndex++;
+    Cookies.set('pageIndex', currentIndex, {expires: 1});
     newPage();
   }
 });

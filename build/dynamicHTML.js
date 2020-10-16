@@ -15,7 +15,7 @@ const contentNamePrevButtonText = "Previous step";
 let userInputName = "";
 
 // Design screen
-const contentDesignTitle = "Choose the design that fits the accession best!";
+const contentDesignTitle = "Choose the design that fits the occasion best!";
 const contentDesignNextButtonText = "Next step";
 const contentDesignPrevButtonText = "Previous step";
 const designOptions = ['Party', 'Christmas', 'Baby'];

@@ -1,0 +1,7 @@
+{
+  "name": "producthuntclone",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

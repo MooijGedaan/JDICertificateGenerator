@@ -1,0 +1,12 @@
+<mc-section background-color="#ffffff" border-bottom="30px solid #EFF1F3" padding="20px 40px">
+    <mj-column>
+        <mc-image padding-top="0px" src="https://www.adios.email/sideprojects/Justdiggit/newsletter/assets/justdiggit_logo.png" align="left" width="35px"/>
+        <mc-text mc:edit="Title" css-class="titleText" font-family="din-condensed, sans-serif">
+            Justdiggit Newsletter
+        </mc-text>
+
+        <mc-text>
+            7 oktober, 2020
+        </mc-text>
+    </mj-column>
+</mc-section>

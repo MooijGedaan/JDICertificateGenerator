@@ -1,0 +1,11 @@
+<mc-section background-color="#ffffff" padding="20px 40px">
+    <mj-column>
+        <mc-image mc:edit="Afbeelding" src="https://source.unsplash.com/1500x1000/?Africa,Nature" align="left"/>
+    </mj-column>
+    <mj-column>
+        <mc-text mc:edit="copy" css-class="paragraph" font-family="din-2014, sans-serif">
+            <h1>Test</h1>
+            <p>I'm baby truffaut selvage offal leggings, forage locavore kombucha hella hammock craft beer ugh schlitz tbh kickstarter thundercats. Four loko beard chillwave farm-to-table bushwick echo park sriracha venmo wolf.</p>
+        </mc-text>
+    </mj-column>
+</mc-section>

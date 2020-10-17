@@ -1,0 +1,11 @@
+<mc-section background-color="#ffffff" padding="20px 40px">
+    <mj-column>
+        <mc-text mc:edit="copy" css-class="paragraph" font-family="din-2014, sans-serif">
+            <h1>Test</h1>
+            <p>I'm baby cred cray pickled, kale chips gochujang DIY air plant. Flannel hoodie fam viral lo-fi. Ethical intelligentsia locavore, direct trade meditation sriracha enamel pin knausgaard tumblr. Single-origin coffee gochujang pickled edison bulb food truck cliche irony venmo heirloom la croix raw denim tousled whatever ramps. Hexagon brunch pug kombucha sriracha sartorial retro pour-over post-ironic leggings vice slow-carb swag scenester. Put a bird on it tote bag organic gastropub selfies master cleanse polaroid knausgaard 90's vexillologist. Vexillologist plaid four dollar toast pug salvia.</p>
+        </mc-text>
+        <mc-button css-class="button" align="left" border-radius="0px" background-color="#7ac144">
+            Donate now!
+        </mc-button>
+    </mj-column>
+</mc-section>

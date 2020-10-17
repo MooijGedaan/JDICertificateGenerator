@@ -1,0 +1,71 @@
+<mjml>
+    <mj-head>
+        <!-- Fonts -->
+        <mj-font name="DIN-REGULAR" href="https://www.adios.email/sideprojects/Justdiggit/newsletter/font/DINNextLTPro-Regular.woff" />
+        <mj-font name="din-2014" href="https://use.typekit.net/mfi8byl.css" />
+        <mj-font name="Raleway" href="https://fonts.googleapis.com/css?family=Raleway" />
+
+        <mj-title>Justdiggit Newsletter</mj-title>
+
+        <mj-style inline="inline">
+            .heading, .sub-heading {
+                text-transform: uppercase !important;
+                font-weight: bold !important;
+            }
+
+
+        </mj-style>
+    </mj-head>
+
+    <mj-body background-color="#EFF1F3">
+        <mc-section>
+            <mj-column>
+                <mj-spacer height="10px" />
+            </mj-column>
+        </mc-section>
+
+        <mc-section background-color="#ffffff" padding="50px 25px">
+            <mj-column>
+                <mc-image
+                        padding-top="0px"
+                        src="https://www.adios.email/sideprojects/Justdiggit/newsletter/assets/Logo---Justdiggit---CDTP.png"
+                        align="left"
+                        width="120px"
+                />
+                <mc-text mc:edit="Sub-title" css-class="sub-heading" font-size="18px" font-family="din-2014, sans-serif" padding="20px 0 5px 25px">
+                    Newsletter 2-2020
+                </mc-text>
+                <mc-text mc:edit="Title" css-class="heading" font-size="45px" font-family="din-condensed, sans-serif" padding="5px 0 20px 25px">
+                    Bringing green back with help of grazing management
+                </mc-text>
+
+                <mc-text mc:edit="Copy" font-size="15px" line-height="17px" font-family="din-2014, sans-serif" padding="25px 25px 25px 25px">
+                    Justdiggit is mostly known for digging to capture rainwater and re-growing trees, but did you know we use other regreening techniques as well? One of those being: grazing management. How does this work?
+                </mc-text>
+
+                <mc-image
+                        padding-top="0px"
+                        src="assets/Persoon.png"
+                        align="left"
+                        width="600px"
+                />
+
+                <mc-text mc:edit="Copy" font-size="15px" line-height="17px" font-family="din-2014, sans-serif" padding="25px 25px 2px 25px" font-weight="bold">
+                    Rubbing your back
+                </mc-text>
+
+                <mc-text mc:edit="Copy" font-size="15px" line-height="17px" font-family="din-2014, sans-serif" padding="2px 25px 25px 25px">
+                    The poles of the olopololis turn out to be not only useful as marking spots for the Maasai, the elephants also like them, but in a slightly different way. For example: elephants love to rub their backs against the poles and run them over to get into the project areas, causing the poles to fall over. They even like the poles so much that they’ve already knocked down 110 of them. As it takes quite some work to put the poles back into the ground, we’re thinking about sustainable alternatives together with the local communities, benefitting the restoring process ánd the elephants.
+                </mc-text>
+
+                <mc-image
+                        padding-top="0px"
+                        src="assets/Olifant.png"
+                        align="left"
+                        width="600px"
+                />
+
+            </mj-column>
+        </mc-section>
+    </mj-body>
+</mjml>

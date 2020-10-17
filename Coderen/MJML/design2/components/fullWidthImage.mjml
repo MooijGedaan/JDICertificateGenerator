@@ -1,0 +1,12 @@
+<mc-section background-url="https://www.adios.email/sideprojects/Justdiggit/newsletter/assets/DiggingBundsKenia.jpg"
+            background-size="cover"
+            background-repeat="no-repeat"
+            background-position="0px -80px"
+>
+    <mj-column width="600px" padding="20px 40px">
+
+        <mc-text mc:edit="copy" css-class="paragraph" font-family="din-2014, sans-serif" color="#ffffff">
+            <h1>Make dry land<br>green again</h1>
+        </mc-text>
+    </mj-column>
+</mc-section>

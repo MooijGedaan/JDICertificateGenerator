@@ -1,0 +1,5 @@
+<mc-section background-color="#ffffff" padding="0px 40px">
+    <mj-column>
+        <mj-divider border-width="2px" border-color="#D0D0D0" border-style="solid"/>
+    </mj-column>
+</mc-section>

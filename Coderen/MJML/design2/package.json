@@ -1,0 +1,12 @@
+{
+  "name": "justdiggit-newsletter",
+  "scripts": {
+    "build": "node_modules/.bin/mjml index.mjml -o ../JDINewsletter/indexV2.html"
+  },
+  "dependencies": {
+    "mjml": "^4.7.1",
+    "mjml-cli": "^4.7.1",
+    "mjml-mailchimp": "^0.0.5",
+    "moment": "^2.29.1"
+  }
+}

@@ -1,0 +1,10 @@
+<mc-section background-color="#7ac144" padding="20px 40px">
+    <mj-column>
+        <mc-text mc:edit="copy" css-class="paragraph" color="#ffffff" align="center" font-family="din-2014, sans-serif" line-height="1.2">
+            <h3>Regreening dry lands with ancient techniques, modern technology and a strong communication approach.</h3>
+        </mc-text>
+        <mc-button css-class="button" align="center" border-radius="0px" background-color="#ffffff" color="#7ac144">
+            Donate now!
+        </mc-button>
+    </mj-column>
+</mc-section>

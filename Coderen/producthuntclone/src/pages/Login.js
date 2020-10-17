@@ -5,7 +5,6 @@ import {toast} from "../utils/toast";
 import useFormValidation from "../hooks/userFormValidation";
 import validateLogin from "../components/Auth/validateLogin";
 import firebase from "../firebase";
-import validateSignup from "../components/Auth/validateSignup";
 
 const INITIAL_STATE = {
     email: "",

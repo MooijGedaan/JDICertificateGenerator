@@ -14,12 +14,12 @@ function useFormValidation(initialState, validate, action) {
                 setValues(initialState);
                 setSubmitting(false);
             } else {
-                toast(object.values(errors).join(" "));
+                toast(Object.values(errors).join(" "));
                 setSubmitting(false);
             }
         }
     //eslint-disable-next-line
-    } [errors]);
+    }, [errors]);
 
     function handleChange(event) {
         setValues(previousValues => ({

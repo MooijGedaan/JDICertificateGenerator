@@ -1,0 +1,83 @@
+#desktop .groundBG {
+    background-image: url("../../assets/DynamicGround/G1.svg");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: bottom right;
+    z-index: -10;
+}
+
+#desktop .human {
+    background-image: url("../../assets/Human.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    transform: scale(1.2);
+    bottom: 70px;
+}
+
+#desktop .superTinyText {
+    font-size: 10px;
+}
+
+#desktop .certificate {
+    bottom: 270px;
+    right: 180px;
+    transform: rotate(30deg) scale(1.2);
+}
+
+@media only screen and (min-height: 676px) {
+    #mobile .groundBG {
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        z-index: -10;
+    }
+    #mobile .human {
+        background-image: url("../../assets/Human.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 10;
+        transform: scale(1.2);
+        bottom: 20px;
+    }
+    #mobile .certificate {
+        bottom: 220px;
+        right: 180px;
+        transform: rotate(30deg) scale(1.2);
+    }
+
+    #mobile .superTinyText {
+        font-size: 8px;
+        transform: scale(1.2);
+    }
+}
+
+@media screen and (max-height: 675px) {
+    #mobile .groundBG {
+        background-repeat: no-repeat;
+        z-index: -10;
+        bottom: 0;
+        position: absolute;
+        background-position: bottom;
+    }
+    #mobile .certificate {
+        bottom: 170px;
+        right: 110px;
+        transform: rotate(30deg);
+        z-index: -5;
+    }
+    #mobile .human {
+        background-image: url("../../assets/Human.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 10;
+        bottom: 0;
+        right: -60px !important;
+    }
+    #mobile .superTinyText {
+        font-size: 8px;
+    }
+}
+
+.background {
+    z-index: -10;
+}

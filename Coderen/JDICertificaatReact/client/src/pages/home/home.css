@@ -1,0 +1,8 @@
+@media only screen and (min-width: 768px) {
+    #header {
+        background-image: url("../../assets/Sun.svg"), url("../../assets/BottomRight.svg");
+        background-size: 200px, 40rem;
+        background-position: -5% -5rem, bottom right;
+        background-repeat: no-repeat;
+    }
+}
